@@ -13,12 +13,12 @@ public class Factorial {
 
     public static void main(String[] args) {
     //factorial of any given number using iteration.
-      /*  int i,fact=1;
+       int i,fact=1;
         int number = 5;
         for(i=1;i<=number;i++){
             fact=fact*i;
         }
-        System.out.println("Factorial of "+number+" is: "+fact);*/
+        System.out.println("Factorial of "+number+" is: "+fact);
     }
     //factorial of any given number using recursion.
 
