@@ -13,7 +13,7 @@ public class Factorial {
 
     public static void main(String[] args) {
     //factorial of any given number using iteration.
-       int i,fact=1;
+      int i,fact=1;
         int number = 5;
         for(i=1;i<=number;i++){
             fact=fact*i;
@@ -23,11 +23,10 @@ public class Factorial {
     //factorial of any given number using recursion.
 
     static int fact(int n) {
-        int result;
-        if ( n == 1)
+        if ( n == 1) {
             return 1;
-        result = fact(n - 1) * n;
-        return result;
+        }
+        return fact(n - 1) * n;
     }
 
 }
