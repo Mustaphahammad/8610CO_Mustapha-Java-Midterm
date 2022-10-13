@@ -186,73 +186,99 @@ What is heap?
 Answer:is the area of memory used to store objects instantiated by applications running on the JVM.
 
 How does Java manage its memory?
-Answer:
+Answer: Java uses an automatic memory management system called a garbage collector, this helps
+to manage the process of allocating and de-allocating objects in memory.
 
 What is the difference between String, StringBuffer and StringBuilder?
-Answer:
+Answer:String is immutable whereas StringBuffer and StringBuilder are mutable classes.
+StringBuffer is thread-safe and synchronized whereas StringBuilder supports multi threading and not
+synchronized , that's why StringBuilder is faster than StringBuffer.
 
 What is Singleton class?
-Answer:
+Answer:Singleton is a design pattern that ensures that a class can only have one instance of the class.
 
 What is Serialization and Deserialization?
-Answer:
+Answer:Serialization is a mechanism of converting the state of an object into a byte stream.
+Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory.
 
 Explain the difference between While and Do..While loops?
-Answer:
+Answer:While loop checks the condition first and then executes the statement(s), whereas do while loop will
+execute the statement(s) at least once, then the condition is checked.
 
 What is Enum?
-Answer:
+Answer:An enum is a special "class" that represents a group of constants
+       (unchangeable variables, like final variables)
 
 What is Iterator?
-Answer:
+Answer:An Iterator is an object that can be used to loop through collections, like ArrayList and HashSet
 
 Which one will take more memory: an int or Integer? Why?
-Answer:
+Answer:Integer will take more memory because is an object which takes 16 bytes to store its int values.
+In the other hand we have the primitive data type int that takes only 4 bytes to store.
 
 Why are Strings considered to be immutable in Java?
-Answer:
+Answer:In the String constant pool, a String object is likely to have one or many references.
+If several references point to the same String without even knowing it, it would be bad if one of the references
+modified that String value. That's why String objects are immutable.
 
 What is constructor chaining in Java?
-Answer:
+Answer:Constructor chaining is the process of calling a sequence of constructors. We can do it in two ways: by using this() keyword
+for chaining constructors in the same class. by using super() keyword for chaining constructors from the parent class.
 
 The difference between Serial and Parallel Garbage Collector?
-Answer:
+Answer: Both are generational collectors the primary difference between the serial and parallel collectors is
+that the parallel collector has multiple threads that are used to speed up garbage collection.
 
 What does JIT stands for?
-Answer:
+Answer: JIT stands for Just-in-time compilation.
 
 Explain the process of Java garbage collection?
-Answer:
+Answer:Automatic garbage collection is the process of looking at heap memory, identifying which objects are
+in use and which are not and deleting the unused objects.
 
 Can you guarantee the garbage collection process?
-Answer:
+Answer:No, Garbage collection does not guarantee that a program will not run out of memory.
 
 What is the difference between stack and heap in Java?
-Answer:
+Answer:Heap memory is used by all the parts of the application whereas stack memory is used only by one thread of execution.
+Whenever an object is created, it's always stored in the Heap space and stack memory contains the reference to it.
 
 What is reflection in Java and why is it useful?
-Answer:
+Answer:Is a feature that allows an executing java programme to examine upon itself and manipulate properties of the programme.
+Useful :we can reflect a class by creating an object of that class then we'll have access to all its attributes, methods and constructor present in the class.
 
 What is multithreading in Java?
-Answer:
+Answer:Multithreading is the ability of a program or an operating system to enable more than one user at a time without requiring multiple
+copies of the program running on the computer. Multithreading can also handle multiple requests from the same user.
 
 What is synchronization in Java?
-Answer:
+Answer:Synchronization in java is the capability to control the access of multiple threads to any shared resource.
 
 What is a Framework?
-Answer:
+Answer: is a support structure or system that holds parts together, has something stretched over it or acts as the main structure.
+
 
 What are the testing Frameworks available in Java?
-Answer:
+Answer:1. Selenium.
+       2. JUnit.
+       3. TestNG.
+       4. SerenityBDD.
+       5. Mockito.
 
 What are jUnit and testNG?
-Answer:
+Answer:JUnit is an open-source framework used to trigger and write tests.
+TestNG is a Java-based framework that is an upgraded option for running tests.
 
 What are the dependencies for this project?
-Answer:
+Answer: MySQL connector, testNG, mongo-java-driver, javax json,jackson, gson and java json.
 
 What is dependency injection in Java?
-Answer:
-
+Answer:DI is the concept in which objects get other required objects from outside ,is also called Inversion of Control.
+A Java class has a dependency on another class, if it uses an instance of this class.
 Explain what static binding and dynamic binding is?
 Answer:
+Static binding: The binding which can be resolved at compile time by the compiler is known as static or early binding.
+The binding of all the static, private, and final methods is done at compile-time "method overloading".
+Dynamic binding: We also call Dynamic binding as Late Binding because binding takes place during the actual execution
+of the program. The best example of Dynamic binding is the Method Overriding where both the Parent class and the derived
+classes have the same method.
