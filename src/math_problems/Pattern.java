@@ -11,6 +11,18 @@ public class Pattern {
      */
 
     public static void main(String[] args) {
+        int i;
 
-    }
-}
+        for (i = 100; i >= 90; i--) {
+            System.out.print(i + " ");
+        }
+        for (i = 88; i >= 70; i -= 2) {
+            System.out.print(i + " ");
+        }
+        for (i = 67; i >= 40; i -= 3) {
+            System.out.print(i + " ");
+        }
+        for (i = 36; i >= 0; i -= 4) {
+            System.out.print(i + " ");
+        }
+    }}

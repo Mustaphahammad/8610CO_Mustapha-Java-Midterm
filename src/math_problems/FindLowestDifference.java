@@ -1,5 +1,8 @@
 package math_problems;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class FindLowestDifference {
 
     /** INSTRUCTIONS
@@ -13,8 +16,22 @@ public class FindLowestDifference {
         int[] array1 = {30, 12, 5, 9, 2, 20, 33, 1, -15};
         int[] array2 = {18, 25, 41, 47, 17, 36, 14, 19, -15};
 
+
+        ArrayList<Integer> result = new ArrayList<>();
+                for (int i = 0; i < array1.length; i++) {
+            if (array2[i] != array1[i]) {
+                result.add(array1[i]);
+            }
+        }
+
+        for (int i = 0; i < array2.length; i++) {
+            if (array1[i] != array2[i]) {
+                result.add(array2[i]);
+            }
+        }
+
+        Collections.sort(result);
+        System.out.println("Lowest number not shared between array1 and array2 is : " + result.get(0));
     }
-
-
 
 }
