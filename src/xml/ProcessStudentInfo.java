@@ -1,5 +1,6 @@
 package xml;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -68,6 +69,33 @@ public class ProcessStudentInfo {
         Map<String, List<Student>> studentMap = new LinkedHashMap<String, List<Student>>();
 
         // Implement the rest below, as per the instructions
+        // path for qtp File
+        qtpDocRelativePath = File.separator + "src" + File.separator + "xml" + File.separator + "data" + File.separator + "qtp.xml";
+        qtpDocPath = systemPath + qtpDocRelativePath;
+
+        // path for selenium file
+        seleniumDocRelativePath = File.separator + "src" + File.separator + "xml" + File.separator + "data" + File.separator + "selenium.xml";
+        seleniumDocPath = systemPath + seleniumDocRelativePath;
+
+        // creating instance of XmlReader to read and parse the data
+        XmlReader reader = new XmlReader();
+
+        // Store selenium students info into a List
+
+        List<Student> seleniumStudents = reader.parseData(tag,seleniumDocPath);
+        for (Student s: seleniumStudents
+        ) {
+            System.out.println(s);
+        }
+
+        // store qtp students info into a List
+        List<Student> qtpStudents = reader.parseData(tag,qtpDocPath);
+        for (Student s: qtpStudents
+        ) {
+            System.out.println(s) ;
+        }
+
+
 
     }
 }

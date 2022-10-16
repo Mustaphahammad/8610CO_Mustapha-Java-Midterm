@@ -45,9 +45,16 @@ public class CsvReader {
 
         Collections.sort(roster);
 
+        int count = 0; int  sum = 0;
+        int avg = 0 ;
         for (Student student : roster) {
             System.out.println(convertNumberOfProblemsSolved(student));
+            count ++;
+            sum += student.getNumberOfExercisesSolved();
+           avg = sum / count;
         }
+        System.out.println("The average score of the class is: " + avg);
+
     }
 
     private static String convertNumberOfProblemsSolved(Student student) {
