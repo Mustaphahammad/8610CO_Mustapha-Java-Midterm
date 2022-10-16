@@ -26,7 +26,7 @@ public class SortEfficiency {
 
     public static void main(String[] args) throws Exception {
         // Declare and initialize an array of a desired length with random numbers (Try this with 100, 1000, 10000, 100000)
-        int[] numberArray = new int[100];
+        int[] numberArray = new int[10];
         insertRandomNumbersIntoArray(numberArray);
 
         SortingAlgorithms sort = new SortingAlgorithms();
@@ -53,6 +53,7 @@ public class SortEfficiency {
         randomize(numberArray);
 
         // region Insertion Sort
+
         numberArray = sort.insertionSort(numberArray);
         long insertionSortExecutionTime = sort.executionTime;
 
@@ -64,37 +65,119 @@ public class SortEfficiency {
         randomize(numberArray);
 
         // region Bubble Sort
+        int [] myArray = new int[100];
+        System.out.println("******BUBBLE SORT****");
+          myArray = sort.bubbleSort(myArray);
+          long bubbleSortExecutionTime = sort.executionTime;
 
+
+        System.out.println("Total Execution Time of " + myArray.length + " numbers in bubble Sort took: "
+                + bubbleSortExecutionTime + " milliseconds");
+
+        ssdb.insertIntegerArray("bubble_sort", "sorted_numbers", myArray);
+        String bubbleQuery = "select * from bubble_sort";
+
+        List<String> mySorted_numbers1 = ssdb.executeQueryReadAllSingleColumn(bubbleQuery, "sorted_numbers");
+        printValue(sorted_numbers);
         // endregion
 
         randomize(numberArray);
 
         // region Merge Sort
+        int [] mySecondArray = new int[1000];
+        System.out.println("******MERGE SORT****");
+
+        mySecondArray = sort.mergeSort(mySecondArray);
+        long mergeSortExecutionTime = sort.executionTime;
+
+        System.out.println("Total Execution Time of " + mySecondArray.length + " numbers in Merge Sort took: "
+                + mergeSortExecutionTime + " milliseconds");
+
+        ssdb.insertIntegerArray("Merge_sort", "sorted_numbers", myArray);
+        String mergeQuery = "select * from Merge_sort";
+
+        List<String> mySorted_numbers2 = ssdb.executeQueryReadAllSingleColumn(mergeQuery, "sorted_numbers");
+        printValue(sorted_numbers);
 
         // endregion
 
         randomize(numberArray);
 
         // region Quick Sort
+        int [] myThirdArray = new int[10000];
+        System.out.println("******QUICK SORT****");
+
+        myThirdArray = sort.quickSort(myThirdArray);
+        long quickSortExecutionTime = sort.executionTime;
+
+
+        System.out.println("Total Execution Time of " + myThirdArray.length + " numbers in quick Sort took: "
+                + quickSortExecutionTime + " milliseconds");
+
+        ssdb.insertIntegerArray("quick_sort", "sorted_numbers", myThirdArray);
+        String quickQuery = "select * from quick_sort";
+
+        List<String> mySorted_numbers3 = ssdb.executeQueryReadAllSingleColumn(quickQuery, "sorted_numbers");
+        printValue(sorted_numbers);
 
         // endregion
 
         randomize(numberArray);
 
         // region Heap Sort
+        int [] myFourthArray= new int[100000];
+        System.out.println("******HEAP SORT****");
+        myFourthArray = sort.heapSort(myFourthArray);
+        long heapSortExecutionTime = sort.executionTime;
 
+
+        System.out.println("Total Execution Time of " + myFourthArray.length + " numbers in heap Sort took: "
+                + heapSortExecutionTime + " milliseconds");
+
+        ssdb.insertIntegerArray("Heap_sort", "sorted_numbers", myFourthArray);
+        String heapQuery = "select * from Heap_sort";
+
+        List<String> mySorted_numbers4 = ssdb.executeQueryReadAllSingleColumn(heapQuery, "sorted_numbers");
+        printValue(sorted_numbers);
         // endregion
 
         randomize(numberArray);
 
         // region Bucket Sort
+        int [] myFifthArray = new int[10];
+        System.out.println("******BUCKET SORT****");
+        myFifthArray = sort.bucketSort(myFifthArray);
+        long bucketSortExecutionTime = sort.executionTime;
 
+
+        System.out.println("Total Execution Time of " + myFifthArray.length + " numbers in bucket Sort took: "
+                + bucketSortExecutionTime + " milliseconds");
+
+        ssdb.insertIntegerArray("bucket_sort", "sorted_numbers", myFifthArray);
+        String bucketQuery = "select * from bucket_sort";
+
+        List<String> mySorted_numbers5 = ssdb.executeQueryReadAllSingleColumn(bucketQuery, "sorted_numbers");
+        printValue(sorted_numbers);
         // endregion
 
         randomize(numberArray);
 
         // region Shell Sort
+        int [] mySixthArray = new int[100];
 
+        System.out.println("******Shell SORT****");
+        mySixthArray = sort.shellSort(mySixthArray);
+        long shellSortExecutionTime = sort.executionTime;
+
+
+        System.out.println("Total Execution Time of " + mySixthArray.length + " numbers in shell Sort took: "
+                + shellSortExecutionTime + " milliseconds");
+
+        ssdb.insertIntegerArray("shell_sort", "sorted_numbers", mySixthArray);
+        String shellQuery = "select * from bubble_sort";
+
+        List<String> mySorted_numbers6 = ssdb.executeQueryReadAllSingleColumn(shellQuery, "sorted_numbers");
+        printValue(sorted_numbers);
         // endregion
     }
 
