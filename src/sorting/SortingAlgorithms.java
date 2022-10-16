@@ -136,8 +136,42 @@ public class SortingAlgorithms {
 
     public int[] heapSort(int[] array) {
         // IMPLEMENT HERE
+        int len = array.length;
 
+        for (int i = len / 2 - 1; i >= 0; i--) {
+            heapify(array, len, i);
+        }
+
+        for (int i=len-1; i>=0; i--)
+        {
+            int temp = array[0];
+            array[0] = array[i];
+            array[i] = temp;
+
+            heapify(array, i, 0);
+        }
         return array;
+    }
+    private void heapify(int[] array, int N, int i) {
+        int largestAtIndex = i;
+        // finding the left child element to the parent element
+        int leftChild = 2 * i + 1;
+        // finding the right child element to the parent element
+        int rightChild = 2 * i + 2;
+
+        if (leftChild < N && array[leftChild] > array[largestAtIndex]) {
+            largestAtIndex = leftChild;
+        }
+        if (rightChild < N && array[rightChild] > array[largestAtIndex]) {
+            largestAtIndex = rightChild;
+        }
+        if (largestAtIndex != i) {
+            int temp = array[i];
+            array[i] = array[largestAtIndex];
+            array[largestAtIndex] = temp;
+
+            heapify(array, N, largestAtIndex);
+        }
     }
 
     public int[] quickSort(int[] array) {

@@ -17,7 +17,10 @@ public class UnitTestSorting {
         SortingAlgorithms sorting = new SortingAlgorithms();
         //sorting.bubbleSort(unSortedArray);
 
-        SortingAlgorithms.printSortedArray(sorting.quickSort(unSortedArray));
+        SortingAlgorithms.printSortedArray(sorting.heapSort(unSortedArray));
+
+
+         //SortingAlgorithms.printSortedArray(sorting.quickSort(unSortedArray));
 
 
         //SortingAlgorithms.printSortedArray(sorting.mergeSort(unSortedArray));
