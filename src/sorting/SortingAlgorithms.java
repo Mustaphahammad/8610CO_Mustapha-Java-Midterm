@@ -1,6 +1,11 @@
 package sorting;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import static java.util.Objects.hash;
 
 public class SortingAlgorithms {
 
@@ -142,8 +147,7 @@ public class SortingAlgorithms {
             heapify(array, len, i);
         }
 
-        for (int i=len-1; i>=0; i--)
-        {
+        for (int i = len - 1; i >= 0; i--) {
             int temp = array[0];
             array[0] = array[i];
             array[i] = temp;
@@ -152,6 +156,7 @@ public class SortingAlgorithms {
         }
         return array;
     }
+
     private void heapify(int[] array, int N, int i) {
         int largestAtIndex = i;
         // finding the left child element to the parent element
@@ -220,10 +225,56 @@ public class SortingAlgorithms {
 
         return array;
     }
+    public int[] bucketSort(int[] array, int bktSize) {
+        //implement here
+        if( bktSize <= 3) {
+            return array;
+        }
+
+        List<Integer>[] buckets = new List[bktSize];
+
+        for(int i = 0; i < bktSize; i++)
+        {
+            buckets[i] = new LinkedList<>();
+        }
+
+        for(int num : array)
+        {
+            buckets[hash(num, bktSize)].add(num);
+        }
+
+        for(List<Integer> bucket : buckets)
+        {
+
+            Collections.sort(bucket);
+        }
+        int index = 0;
+
+        for(List<Integer> bucket : buckets) {
+            for (int num : bucket) {
+                array[index++] = num;
+            }
+        }
+
+    return array;
+    }
 
     public int[] shellSort(int[] array) {
         //implement here
+        int n = array.length;
 
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i += 1) {
+
+                int temp = array[i];
+                int j;
+
+                for (j = i; j >= gap && array[j - gap] > temp; j -= gap) {
+                    array[j] = array[j - gap];
+                }
+                array[j] = temp;
+            }
+        }
         return array;
     }
 }
