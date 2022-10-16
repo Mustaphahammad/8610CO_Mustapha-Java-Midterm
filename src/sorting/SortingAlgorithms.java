@@ -79,68 +79,105 @@ public class SortingAlgorithms {
     }
 
     public int[] mergeSort(int[] array) {
-       //Check if the array contains a single value
-        if (array.length <= 1){
+        //Check if the array contains a single value
+        if (array.length <= 1) {
             return array;
         }
-        int midPoint = (array.length)/2;
-        int [] left = new int[midPoint];
-        int [] right;
-       // check if the array.length is an even number
-        if(array.length % 2 == 0){
+        int midPoint = (array.length) / 2;
+        int[] left = new int[midPoint];
+        int[] right;
+        // check if the array.length is an even number
+        if (array.length % 2 == 0) {
             right = new int[midPoint];
-        }else{
+        } else {
             right = new int[midPoint + 1];
         }//populate the R & L arrays
-        for (int i = 0; i < midPoint; i++){
+        for (int i = 0; i < midPoint; i++) {
             left[i] = array[i];
         }
-        for(int j = 0; j < right.length; j++){
+        for (int j = 0; j < right.length; j++) {
             right[j] = array[midPoint + j];
         }
-        int [] result = new int[array.length];
+        int[] result = new int[array.length];
 
         left = mergeSort(left);
         right = mergeSort(right);
-        result = merge(left,right);
+        result = merge(left, right);
 
         return result;
     }
-// Helper method
+
+    // Helper method
     private static int[] merge(int[] left, int[] right) {
-    int [] result = new int [left.length + right.length];
-    int leftPointer = 0;
-    int rightPointer = 0;
-    int resultPointer = 0;
+        int[] result = new int[left.length + right.length];
+        int leftPointer = 0;
+        int rightPointer = 0;
+        int resultPointer = 0;
 
-    while(leftPointer < left.length || rightPointer < right.length){
-      if(leftPointer < left.length && rightPointer < right.length){
-          if(left[leftPointer] < right[rightPointer]){
-              result[resultPointer++] = left[leftPointer++];
+        while (leftPointer < left.length || rightPointer < right.length) {
+            if (leftPointer < left.length && rightPointer < right.length) {
+                if (left[leftPointer] < right[rightPointer]) {
+                    result[resultPointer++] = left[leftPointer++];
 
-          }else{
-              result[resultPointer++] = right[rightPointer++];
-          }
-      } else if(leftPointer < left.length){
-          result[resultPointer++] = left[leftPointer++];
-      }
-       else if (rightPointer < right.length){
-           result[resultPointer++] = right[rightPointer++];
-      }
-    } 
-    return result;
+                } else {
+                    result[resultPointer++] = right[rightPointer++];
+                }
+            } else if (leftPointer < left.length) {
+                result[resultPointer++] = left[leftPointer++];
+            } else if (rightPointer < right.length) {
+                result[resultPointer++] = right[rightPointer++];
+            }
+        }
+        return result;
     }
 
+    //QuickSort
 
-    public int[] quickSort(int[] array) {
+
+    public int[] heapSort(int[] array) {
         // IMPLEMENT HERE
 
         return array;
     }
 
-    public int[] heapSort(int[] array) {
+    public int[] quickSort(int[] array) {
         // IMPLEMENT HERE
+        final long startTime = System.currentTimeMillis();
+        // check the method below quicksort
+        quickSort(array, 0, array.length - 1);
 
+        final long endTime = System.currentTimeMillis();
+        this.executionTime = endTime - startTime;
+        return array;
+    }
+
+    public int[] quickSort(int[] array, int low, int high) {
+        if (low >= high) {
+            return array;
+        }
+        int startPointer = low;
+        int endPointer = high;
+        int midpoint = startPointer + (endPointer - startPointer) / 2, pivot = array[midpoint];
+
+        while (startPointer <= endPointer) {
+
+            while (array[startPointer] < pivot) {
+                startPointer++;
+            }
+            while (array[endPointer] > pivot) {
+                endPointer--;
+            }
+            if (startPointer <= endPointer) {
+                int temp = array[startPointer];
+                array[startPointer] = array[endPointer];
+                array[endPointer] = temp;
+                startPointer++;
+                endPointer--;
+            }
+        }
+
+        quickSort(array, low, endPointer);
+        quickSort(array, startPointer, high);
         return array;
     }
 

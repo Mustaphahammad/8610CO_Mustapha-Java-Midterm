@@ -17,7 +17,10 @@ public class UnitTestSorting {
         SortingAlgorithms sorting = new SortingAlgorithms();
         //sorting.bubbleSort(unSortedArray);
 
-        SortingAlgorithms.printSortedArray(sorting.mergeSort(unSortedArray));
+        SortingAlgorithms.printSortedArray(sorting.quickSort(unSortedArray));
+
+
+        //SortingAlgorithms.printSortedArray(sorting.mergeSort(unSortedArray));
 
         // Pass the unsorted array to selectionSort() method (or any method you want to unit test) from Sort class
         unSortedArray = sorting.selectionSort(unSortedArray);
